@@ -1,11 +1,13 @@
-import React, {
+import {
   useEffect,
   useReducer,
   useState,
 } from 'react';
 
-import Button from '../UI/Button/Button';
-import Card from '../UI/Card/Card';
+import {
+  Button,
+  Card,
+} from 'components';
 import classes from './Login.module.css';
 
 const Login = (props) => {
@@ -198,4 +200,4 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+export { Login };

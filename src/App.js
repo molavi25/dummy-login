@@ -1,11 +1,15 @@
-import React, {
+import {
   useEffect,
   useState,
 } from 'react';
 
-import Home from './components/Home/Home';
-import Login from './components/Login/Login';
-import MainHeader from './components/MainHeader/MainHeader';
+import {
+  Home,
+  Login,
+  MainHeader,
+} from 'components';
+
+import { AuthContext } from 'context';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] =
@@ -46,9 +50,9 @@ function App() {
   };
 
   return (
-    <React.Fragment>
+    <AuthContext.Provider
+      value={{ isLoggedIn }}>
       <MainHeader
-        isAuthenticated={isLoggedIn}
         onLogout={logoutHandler}
       />
       <main>
@@ -63,7 +67,7 @@ function App() {
           />
         )}
       </main>
-    </React.Fragment>
+    </AuthContext.Provider>
   );
 }
 
